@@ -1,0 +1,10 @@
+<li>
+    
+	{{burger_name}}
+
+	<button {{#if digesting}}class="regurgitate"{{else}}class="change-digesting"{{/if}} data-id="{{id}}" data-digesting="{{digesting}}" name={{burger_name}}>
+		{{#if digesting}}Regurgitate{{else}}Consume{{/if}}
+	</button>
+    {{!-- Button to discard burgers --}}
+    <button class="discard-burger" data-id="{{this.id}}">Discard</button>
+</li>

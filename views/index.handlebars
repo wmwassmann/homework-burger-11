@@ -1,0 +1,43 @@
+<div class="container" id='container'>
+  <h1>Burger Master: 3001</h1>
+
+  <h2>Add New Burger</h2>
+  <form class="create-form">
+
+    <div class="form-group">
+      <label for="newburg">Burger Name:</label>
+      <input type="text" id="burgerName" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="digesting">digesting?</label><br>
+      <input type="radio" name="digesting" value="1" checked> digesting!<br>
+      <input type="radio" name="digesting" value="0"> In need of consumption.
+    </div>
+
+    <button type="submit">Add Burger</button>
+
+  </form>
+
+  <h2>The Unconsumed</h2>
+  {{!-- Looping through each burger in the database and generating html, putting it in a fresh burger list or ded burger list depending on digesting state --}}
+  <ul>
+    {{#each burgers}}
+      {{#unless digesting}}
+        {{> burgers/burger-block digesting=false}}
+      {{/unless}}
+    {{/each}}
+  </ul>
+
+  <h2>The Digesting</h2>
+<div class='burger-list'>
+  <ul>
+    {{#each burgers}}
+      {{#if digesting}}
+        {{> burgers/burger-block digesting=true}}
+      {{/if}}
+    {{/each}}
+  </ul>
+</div> 
+
+</div>
